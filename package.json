@@ -3,14 +3,15 @@
   "version": "1.0.0",
   "description": "",
   "license": "ISC",
-  "author": "",
+  "author": "Ramona Reinholdz",
   "type": "commonjs",
-  "main": "index.js",
   "scripts": {
     "start": "parcel src/index.html",
     "build": "parcel build src/index.html"
   },
   "devDependencies": {
+    "@parcel/transformer-sass": "^2.15.4",
     "parcel": "^2.15.4"
-  }
+  },
+  "browserslist": "> 0.5%, last 2 versions, not dead"
 }
