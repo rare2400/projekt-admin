@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/main.scss">
+    <link rel="icon" href="./images/favicon.ico" type="image/x-icon">
+    <script src="js/main.js" defer></script>
+    <script src="js/login.js" defer></script>
+    <title>Logga in</title>
+</head>
+
+<body>
+    <header>
+            <h1><a href="index.html">Pizzeria Venedig</a></h1>
+    </header>
+    <div class="container">
+        <main>
+            <h2>Välkommen</h2>
+            <p id="ingress">Logga in för att få tillgång till att administrera sida</p>
+            <div class="form-container">
+                <h3>Logga in</h3>
+                <div id="error-msg"></div>
+                <form id="login-form" method="post">
+                    <label for="username">Användarnamn:</label>
+                    <input type="text" id="username" class="input-text" name="username">
+
+                    <label for="password">Lösenord:</label>
+                    <input type="password" id="password" class="input-text" name="password">
+
+                    <div class="btn-row">
+                        <button type="submit" class="btn">Logga in</button>
+                    </div>
+                </form>
+            </div>
+
+        </main>
+    </div>
+    <footer>
+        <p>
+            &copy; Pizzeria Venedig 2025 
+        </p>
+    </footer>
+
+</body>
+
+</html>
