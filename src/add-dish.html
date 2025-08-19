@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/main.scss">
+    <link rel="icon" href="./images/favicon.ico" type="image/x-icon">
+    <script src="js/checkAuth.js"></script>
+    <script src="js/main.js" defer></script>
+    <title>Lägg till</title>
+</head>
+
+<body>
+    <div id="delete-message" class="hidden"></div>
+    <header>
+        <div class="h-container">
+            <h1><a href="menu.html">Pizzeria Venedig</a></h1>
+            <nav>
+                <ul id="menu">
+                    <li><a href="menu.html">Meny</a></li>
+                    <li><a href="add-dish.html">Lägg till maträtt</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <div class="container">
+        <main>
+            <div class="form-container">
+                <h2 id="welcome-msg">Välkommen</h2>
+                <p id="error-msg"></p>
+                <form id="add-post" method="post">
+                    <label for="name">Namn på rätten:</label>
+                    <input type="text" id="name" class="input-text" name="name" placeholder="Namn...">
+
+                    <label for="category">Kategori:</label>
+                    <select id="category" name="category">
+                        <option value="pizza1">Pizzor klass 1</option>
+                        <option value="pizza2">Pizzor klass 2</option>
+                        <option value="pizza3">Pizzor klass 3</option>
+                        <option value="pizza4">Pizzor klass 4</option>
+                        <option value="pizza5">Pizzor klass 5</option>
+                        <option value="pizza6">Pizzor klass 6</option>
+                        <option value="americanpizza">Amerikansk Pizzor</option>
+                        <option value="italianpizza">Italiensk Pizzor</option>
+                        <option value="sallad">Sallader</option>
+                        <option value="kebab">Kebabrätter</option>
+                        <option value="hamburger">Hamburgare</option>
+                        <option value="sauce">Såser</option>
+                        <option value="sides">Tillbehör</option>
+                        <option value="snacks">Snacks</option>
+                        <option value="chocolate">Choklad</option>
+                        <option value="icecream">Glass</option>
+                        <option value="dryck">Drycker</option>
+                    </select>
+
+                    <label for="ingredients">Ingredienser:</label>
+                    <textarea id="ingredients" name="ingredients" placeholder="Rättens innehåll..."></textarea>
+
+                    <label for="price">Pris:</label>
+                    <input type="number" id="price" class="input-text" name="price" placeholder="Pris i SEK">
+
+                    <div class="btn-row">
+                        <button type="submit" class="btn">Lägg till</button>
+                    </div>
+                </form>
+            </div>
+
+        </main>
+    </div>
+    <footer>
+        &copy; Pizzeria Venedig 2025
+    </footer>
+
+</body>
+
+</html>
