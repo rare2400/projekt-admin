@@ -1,0 +1,56 @@
+@use "./abstracts";
+
+/* header */
+header,
+footer {
+    background-color: abstracts.$header-color;
+    color: abstracts.$light-text;
+    padding: 1rem 0.2rem;
+    text-align: center;
+}
+
+.h-container {
+    @include abstracts.grid(3rem, 2);
+    align-items: center;
+}
+
+/* navigation */
+nav {
+    ul {
+        padding: 0;
+    }
+
+    li {
+        list-style: none;
+        display: inline;
+        padding-right: 1rem;
+    }
+
+    a {
+        text-decoration: none;
+        color: abstracts.$light-text;
+        font-size: 1rem;
+        font-weight: 700;
+    }
+}
+
+nav a:hover,
+.log-out-btn:hover,
+h1 a:hover {
+    @extend %hoverLink;
+}
+
+@media (min-width: 50rem) {
+    .container {
+        max-width: 50rem;
+        margin: 0 auto;
+    }
+
+    li {
+        padding-right: 1.5rem;
+
+        a {
+            font-size: 1rem;
+        }
+    }
+}
