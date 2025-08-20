@@ -15,16 +15,19 @@ form {
         width: 100%;
     }
 
-    select:hover {
-        cursor: pointer;
-    }
-
     textarea {
         height: 8rem;
     }
 
     select {
-        margin-left: 0;
+        padding: 0.3rem;
+        margin: 0.5rem auto 1rem;
+        border: 1px solid abstracts.$shadow;
+        width: 100%;
+
+        &:hover {
+            cursor: pointer;
+        }
     }
 
     label {
