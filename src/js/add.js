@@ -1,0 +1,67 @@
+"use strict";
+
+const addDish = document.getElementById("add-dish");
+
+if (addDish) {
+    addDish.addEventListener("submit", createDish);
+} else {
+    console.log("addDish form not found");
+}
+
+//create a new dish
+async function createDish(e) {
+    e.preventDefault();
+
+    //fetch input values
+    let nameInput = document.getElementById("name").value;
+    let catergoryInput = document.getElementById("category").value;
+    let ingredientsInput = document.getElementById("ingredients").value;
+    let priceInput = document.getElementById("price").value;
+    let errorMsg = document.getElementById("error-msg");
+
+    //validate required input
+    if (!nameInput || !catergoryInput || !ingredientsInput || !priceInput) {
+        errorMsg.textContent = "Fyll i alla fält!";
+        return;
+    }
+
+    let dish = {
+        name: nameInput,
+        category: catergoryInput,
+        ingredients: ingredientsInput,
+        price: priceInput
+    }
+
+    const token = localStorage.getItem("admin-token");
+
+    //POST new dish to API
+    try {
+        const response = await fetch("http://127.0.0.1:3000/api/menu", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": "Bearer " + token
+            },
+            body: JSON.stringify(dish)
+        });
+
+        if (response.ok) {
+            const data = await response.json();
+            console.log(data);
+
+            //message to user
+            errorMsg.textContent = "Inlägget är publicerat";
+
+            //clear form
+            addDish.reset();
+
+        } else {
+            errorMsg.textContent = "Ett fel uppstod vid publiceringen av inlägget";
+            throw new Error("Dish creation failed");
+        }
+
+    } catch (error) {
+        console.log("Något blev fel när inlägget skapades:", error);
+        errorMsg.textContent = "Ett fel uppstod vid publiceringen av inlägget";
+    }
+}
