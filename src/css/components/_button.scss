@@ -4,30 +4,25 @@
     text-align: center;
 
     .btn {
-        @include abstracts.button(abstracts.$header-color, abstracts.$light-text, 70%, 3rem, 2em auto 0, 100%, center, 1rem, false);
+        @include abstracts.button(abstracts.$green, abstracts.$light-text, 70%, 3rem, 2em auto 0, 100%, center, 1rem, false);
         box-shadow: 0px 0px 4px 0px abstracts.$shadow;
-
-        &:hover {
-            transform: scale(1.05);
-        }
     }
 }
 
-.link-row {
-    @include abstracts.grid(100%, 1);
-    gap: 0.1em;
-    justify-content: center;
+.log-out-btn {
+    border: none;
+    margin: 0;
+    padding: 0;
+    width: auto;
+    background: transparent;
+    color: abstracts.$light-text;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+}
 
-    .link-btn {
-        @include abstracts.button(abstracts.$header-color, abstracts.$light-text, 50%, 3rem, 0.5em auto, 100%, center, 0.9rem, false);
-        text-decoration: none;
-        box-shadow: 0px 0px 4px 0px abstracts.$shadow;
-        padding: 0.7em;
-
-        &:hover {
-            transform: scale(1.05);
-        }
-    }
+.link-btn {
+    @include abstracts.button(abstracts.$green, abstracts.$light-text, 70%, 2rem, 0 auto, 100%, center, 1rem, false);
 }
 
 @media (min-width: 50rem) {
