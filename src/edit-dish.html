@@ -8,6 +8,7 @@
     <link rel="icon" href="./images/favicon.ico" type="image/x-icon">
     <script src="js/checkAuth.js"></script>
     <script src="js/main.js" defer></script>
+    <script src="js/edit.js" defer></script>
     <title>Lägg till</title>
 </head>
 
@@ -18,8 +19,10 @@
             <h1><a href="menu.html">Pizzeria Venedig</a></h1>
             <nav>
                 <ul id="nav-menu">
+                    <li><button class="log-out-btn">Logga ut</button></li>
                     <li><a href="menu.html">Meny</a></li>
                     <li><a href="add-dish.html">Lägg till maträtt</a></li>
+                    <li><a href="messages.html">Meddelanden</a></li>
                 </ul>
             </nav>
         </div>
@@ -27,14 +30,15 @@
     <div class="container">
         <main>
             <div class="form-container">
-                <h2 id="welcome-msg">Välkommen</h2>
-                <p id="error-msg"></p>
-                <form id="add-post" method="post">
+                <h2 id="welcome-msg">Redigera rätt</h2>
+                <p id="msg"></p>
+                <form id="edit-dish" method="post">
                     <label for="name">Namn på rätten:</label>
-                    <input type="text" id="name" class="input-text" name="name" placeholder="Namn...">
+                    <input type="text" id="name" class="input-text" name="name" value="">
 
                     <label for="category">Kategori:</label>
                     <select id="category" name="category">
+                        <option value="" disabled selected>Välj kategori</option>
                         <option value="pizza1">Pizza klass 1</option>
                         <option value="pizza2">Pizza klass 2</option>
                         <option value="pizza3">Pizza klass 3</option>
@@ -52,10 +56,10 @@
                     </select>
 
                     <label for="ingredients">Ingredienser:</label>
-                    <textarea id="ingredients" name="ingredients" placeholder="Rättens innehåll..."></textarea>
+                    <textarea id="ingredients" name="ingredients" value=""></textarea>
 
                     <label for="price">Pris:</label>
-                    <input type="number" id="price" class="input-text" name="price" placeholder="Pris i SEK">
+                    <input type="number" id="price" class="input-text" name="price" value="">
 
                     <div class="btn-row">
                         <button type="submit" class="btn">Lägg till</button>
