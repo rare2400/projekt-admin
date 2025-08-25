@@ -8,6 +8,15 @@ function init() {
     if (menu) {
         fetchPosts();
     }
+
+    const logOutBtn = document.querySelector(".log-out-btn");
+
+    if (logOutBtn) {
+        logOutBtn.addEventListener("click", () => {
+            localStorage.removeItem("admin-token");
+            window.location.href = "index.html";
+        });
+    }
 }
 
 //fetch posts from API
@@ -27,8 +36,8 @@ async function fetchPosts() {
 //display fetched posts from API
 async function displayPosts(data) {
     menu.innerHTML = "";
-    
-    if(data.length === 0) {
+
+    if (data.length === 0) {
         menu.textContent = "Det finns inga inlägg att visa";
         return;
     }
@@ -56,6 +65,11 @@ async function displayPosts(data) {
         //set text for buttons
         changeBtn.textContent = "Ändra";
         deleteBtn.textContent = "Ta bort";
+
+        //eventlisteners for buttons
+        changeBtn.addEventListener("click", () => {
+            window.location.href = `edit-dish.html?id=${dish.id}`;
+        });
 
         //put the elements together
         dishBox.appendChild(name);
