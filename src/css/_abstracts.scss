@@ -1,6 +1,6 @@
 /* variables */
 /* colors */
-$header-color: #336746;
+$header-color: #232021;
 $background-color: #fcfcfc;
 $black: #232021;
 $white: #fff;
@@ -48,10 +48,12 @@ $font-stack: 'Arial', sans-serif;
         background-color: $bg-color;
         color: $text-color;
         border: none;
+        border-radius: 10px;
 
         &:hover {
             background-color: #3367469b;
             color: $black;
+            transform: scale(1.05);
         }
     }
 
