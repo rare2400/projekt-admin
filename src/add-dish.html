@@ -4,6 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chewy&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/main.scss">
     <link rel="icon" href="./images/favicon.ico" type="image/x-icon">
     <script src="js/checkAuth.js"></script>
@@ -15,7 +18,7 @@
 <body>
     <header>
         <div class="h-container">
-            <a href="index.html"><img src="images/logo.png" alt="Mörk logotyp med vit text för pizzeria venedig"
+            <a href="menu.html"><img src="images/logo.png" alt="Mörk logotyp med vit text för pizzeria venedig"
                     height="65" class="logo"></a>
             <nav id="nav-menu">
                 <ul>
@@ -43,7 +46,7 @@
     <div class="container">
         <main>
             <div class="form-container">
-                <h1 id="welcome-msg">Välkommen</h1>
+                <h1>Lägg till rätt</h1>
                 <p id="error-msg"></p>
                 <form id="add-dish" method="post">
                     <label for="name">Namn på rätten:</label>
@@ -52,20 +55,20 @@
                     <label for="category">Kategori:</label>
                     <select id="category" name="category">
                         <option value="" selected disabled>Välj kategori</option>
-                        <option value="pizza1">Pizza klass 1</option>
-                        <option value="pizza2">Pizza klass 2</option>
-                        <option value="pizza3">Pizza klass 3</option>
-                        <option value="pizza4">Pizza klass 4</option>
-                        <option value="pizza5">Pizza klass 5</option>
-                        <option value="pizza6">Pizza klass 6</option>
-                        <option value="americanpizza">Amerikansk Pizza</option>
-                        <option value="italianpizza">Italiensk Pizza</option>
-                        <option value="sallad">Sallad</option>
-                        <option value="kebab">Kebabrätter</option>
-                        <option value="hamburger">Hamburgare</option>
-                        <option value="sauce">Såser</option>
-                        <option value="sides">Tillbehör</option>
-                        <option value="dryck">Dryck</option>
+                        <option value="Pizza klass 1">Pizza klass 1</option>
+                        <option value="Pizza klass 2">Pizza klass 2</option>
+                        <option value="Pizza klass 3">Pizza klass 3</option>
+                        <option value="Pizza klass 4">Pizza klass 4</option>
+                        <option value="Pizza klass 5">Pizza klass 5</option>
+                        <option value="Pizza klass 6">Pizza klass 6</option>
+                        <option value="American Pizza">Amerikansk Pizza</option>
+                        <option value="Italian Pizza">Italiensk Pizza</option>
+                        <option value="Sallad">Sallad</option>
+                        <option value="Kebab">Kebabrätter</option>
+                        <option value="Hamburger">Hamburgare</option>
+                        <option value="Sauce">Såser</option>
+                        <option value="Sides">Tillbehör</option>
+                        <option value="Dryck">Dryck</option>
                     </select>
 
                     <label for="ingredients">Ingredienser:</label>
