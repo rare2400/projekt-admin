@@ -3,6 +3,11 @@
 window.onload = init;
 
 const menu = document.getElementById("menu");
+//nav-menu elements
+let header = document.querySelector("header");
+let navMenuEl = document.getElementById("nav-menu");
+let openBtn = document.getElementById("open-menu");
+let closeBtn = document.getElementById("close-menu");
 
 function init() {
     if (menu) {
@@ -17,6 +22,15 @@ function init() {
             window.location.href = "index.html";
         });
     }
+}
+
+//eventlisteners
+openBtn.addEventListener('click', toggleMenu);
+closeBtn.addEventListener('click', toggleMenu);
+
+function toggleMenu() {
+    header.classList.toggle("menu-open");
+    navMenuEl.classList.toggle("active");
 }
 
 //fetch posts from API
