@@ -27,6 +27,8 @@
 
 .link-btn {
     @include abstracts.button(abstracts.$green, abstracts.$light-text, 70%, 2rem, 0 auto, 100%, center, 1rem, false);
+    align-content: center;
+    text-decoration: none;
 }
 
 @media (min-width: 50rem) {
@@ -35,7 +37,7 @@
         padding: 0.8rem;
         border-radius: 10px;
         cursor: pointer;
-    
+
         &:hover {
             background-color: abstracts.$green;
         }
