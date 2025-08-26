@@ -60,7 +60,7 @@ async function displayPosts(data) {
     data.forEach(dish => {
         const dishBox = document.createElement("div");
         dishBox.classList.add("dish-box");
-        const name = document.createElement("h3");
+        const name = document.createElement("h2");
         const ingredients = document.createElement("p");
         const price = document.createElement("p");
         price.classList.add("price");
