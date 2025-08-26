@@ -12,13 +12,17 @@
 .log-out-btn {
     border: none;
     margin: 0;
-    padding: 0;
-    width: auto;
+    padding: 0.8rem;
+    width: 100%;
     background: transparent;
     color: abstracts.$light-text;
-    font-size: 1rem;
-    font-weight: 700;
+    font-size: 1.2rem;
+
     cursor: pointer;
+
+    &:hover {
+        background-color: abstracts.$green;
+    }
 }
 
 .link-btn {
@@ -26,6 +30,17 @@
 }
 
 @media (min-width: 50rem) {
+    .log-out-btn {
+        font-size: 1rem;
+        padding: 0.8rem;
+        border-radius: 10px;
+        cursor: pointer;
+    
+        &:hover {
+            background-color: abstracts.$green;
+        }
+    }
+
     .link-btn {
         font-weight: 700;
     }
