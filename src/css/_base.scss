@@ -16,24 +16,16 @@ body {
 
 h1 {
     font-size: 1.8rem;
-    margin: auto 1rem;
-
-    a {
-        color: abstracts.$light-text;
-        text-decoration: none;
-    }
-}
-
-h2 {
-    font-size: 1.8rem;
     margin: 1.8rem auto 1.2rem;
 }
 
+h2,
 h3 {
     font-size: 1.3rem;
     margin: 0;
 }
 
+h1,
 h2,
 h3 {
     text-align: center;
