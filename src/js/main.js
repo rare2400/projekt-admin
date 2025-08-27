@@ -83,7 +83,7 @@ async function displayMenu(data) {
 
         //eventlisteners for buttons
         changeBtn.addEventListener("click", () => {
-            window.location.href = `edit-dish.html?id=${dish.id}`;
+            window.location.href = `edit-dish.html?id=${dish._id}`;
         });
 
         //put the elements together
