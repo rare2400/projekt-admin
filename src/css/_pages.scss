@@ -1,13 +1,9 @@
 @use "abstracts";
 
 .form-container {
-    @include abstracts.textBox(90%, 1rem, 1rem auto 3rem, 0px 0px 8px 0px abstracts.$shadow, 1px solid abstracts.$shadow);
+    @include abstracts.textBox(90%, 1rem, 1rem auto 3rem, 0px 0px 8px 0px abstracts.$green, 1px solid abstracts.$shadow);
     background-color: abstracts.$white;
-}
-
-#welcome-msg {
-    font-size: 1.5em;
-    margin: 1em auto 0.2em;
+    border-radius: 10px;
 }
 
 #user-info {
@@ -20,9 +16,64 @@
     font-weight: 600;
 }
 
-#error-msg {
+#msg {
     font-size: 0.8rem;
-    color: red;
     text-align: center;
-    margin-top: 0.3em;
+    margin: 0;
+    height: 0;
+    font-weight: 700;
+}
+
+#error-msg {
+    @extend #msg;
+    color: red;
+}
+
+//menu
+#filter {
+    padding: 0.3rem;
+    margin: 0.5rem auto 1rem;
+    border: 1px solid abstracts.$shadow;
+    width: 20%;
+    border-radius: 10px;
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+#menu-container {
+    @include abstracts.textBox(90%, 0, 1rem auto 3rem, 0px 0px 8px 0px abstracts.$shadow, 1px solid abstracts.$shadow);
+    background-color: abstracts.$white;
+    border-radius: 10px;
+}
+
+#filter-container {
+    @include abstracts.grid(100%, 2);
+    margin-top: 1em;
+
+    label {
+        margin-left: 1em;
+    }
+
+    select {
+        width: 50%;
+        margin: 0 auto;
+    }
+}
+
+.dish-box {
+    @include abstracts.textBox(100%, 0.8rem 2rem, 0 auto);
+    border-bottom: 1px solid abstracts.$shadow;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+
+    h2 {
+        text-align: left;
+    }
+
+    p {
+        margin: 0.3rem 0 0;
+    }
+
 }
