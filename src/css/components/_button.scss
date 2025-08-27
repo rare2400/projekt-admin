@@ -44,7 +44,7 @@
 
     .change-btn,
     .delete-btn {
-        @include abstracts.button(abstracts.$green, abstracts.$light-text, 50%, 2rem, 1em auto 0, 100%, center, 1rem, false);
+        @include abstracts.button(abstracts.$green, abstracts.$light-text, 50%, 2rem, 0.3em auto 0, 100%, center, 1rem, false);
         box-shadow: 0px 0px 4px 0px abstracts.$shadow;
     }
 
