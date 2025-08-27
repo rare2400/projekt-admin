@@ -47,6 +47,7 @@
         <main>
             <div class="form-container">
                 <h1 id="welcome-msg">Redigera rätt</h1>
+                <a href="menu.html" class="back-btn">Tillbaka</a>
                 <p id="msg"></p>
                 <form id="edit-dish" method="post">
                     <label for="name">Namn på rätten:</label>
@@ -54,18 +55,18 @@
 
                     <label for="category">Kategori:</label>
                     <select id="category" name="category">
-                        <option value="" disabled selected>Välj kategori</option>
-                        <option value="pizza1">Pizza klass 1</option>
-                        <option value="pizza2">Pizza klass 2</option>
-                        <option value="pizza3">Pizza klass 3</option>
-                        <option value="pizza4">Pizza klass 4</option>
-                        <option value="italianpizza">Italiensk Pizza</option>
-                        <option value="sallad">Sallad</option>
-                        <option value="kebab">Kebabrätter</option>
-                        <option value="hamburger">Hamburgare</option>
-                        <option value="sauce">Såser</option>
-                        <option value="sides">Tillbehör</option>
-                        <option value="dryck">Dryck</option>
+                        <option value="" selected disabled>Välj kategori</option>
+                        <option value="Pizza klass 1">Pizza klass 1</option>
+                        <option value="Pizza klass 2">Pizza klass 2</option>
+                        <option value="Pizza klass 3">Pizza klass 3</option>
+                        <option value="Pizza klass 4">Pizza klass 4</option>
+                        <option value="Italian Pizza">Italiensk Pizza</option>
+                        <option value="Sallad">Sallad</option>
+                        <option value="Kebab">Kebabrätter</option>
+                        <option value="Hamburger">Hamburgare</option>
+                        <option value="Sauce">Såser</option>
+                        <option value="Sides">Tillbehör</option>
+                        <option value="Dryck">Dryck</option>
                     </select>
 
                     <label for="ingredients">Ingredienser:</label>
@@ -75,7 +76,7 @@
                     <input type="number" id="price" class="input-text" name="price" value="">
 
                     <div class="btn-row">
-                        <button type="submit" class="btn">Lägg till</button>
+                        <button type="submit" class="btn">Uppdatera</button>
                     </div>
                 </form>
             </div>
