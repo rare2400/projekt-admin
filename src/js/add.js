@@ -50,18 +50,18 @@ async function createDish(e) {
             console.log(data);
 
             //message to user
-            errorMsg.textContent = "Inlägget är publicerat";
+            errorMsg.textContent = "Rätten är tillagd!";
 
             //clear form
             addDish.reset();
 
         } else {
-            errorMsg.textContent = "Ett fel uppstod vid publiceringen av inlägget";
+            errorMsg.textContent = "Ett fel uppstod vid uppladdning av rätt";
             throw new Error("Dish creation failed");
         }
 
     } catch (error) {
-        console.log("Något blev fel när inlägget skapades:", error);
-        errorMsg.textContent = "Ett fel uppstod vid publiceringen av inlägget";
+        console.log("Något blev fel när rätten lades till:", error);
+        errorMsg.textContent = "Ett fel uppstod vid uppladdning av rätten";
     }
 }
