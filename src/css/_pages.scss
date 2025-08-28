@@ -6,14 +6,10 @@
     border-radius: 10px;
 }
 
-#user-info {
-    font-size: 0.8em;
-    text-align: center;
-}
-
 #ingress {
     text-align: center;
     font-weight: 600;
+    padding: 0 1rem;
 }
 
 #msg {
@@ -76,4 +72,19 @@
         margin: 0.3rem 0 0;
     }
 
+}
+
+.msg-box {
+    @include abstracts.textBox(90%, 0.8rem 2rem, 1em auto, 0px 0px 8px 0px abstracts.$shadow, 1px solid abstracts.$shadow);
+    border-radius: 10px;
+
+    h2 {
+        font-size: 1.3em;
+    }
+}
+
+@media (min-width: 50rem) {
+    .msg-box {
+        max-width: 50rem;
+    }
 }
