@@ -57,7 +57,7 @@
         background-color: abstracts.$red;
 
         &:hover {
-            background-color: #ca352c9b;
+            background-color: darken(abstracts.$red, 15%);
         }
     }
 }

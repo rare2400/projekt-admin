@@ -51,8 +51,7 @@ $font-stack: 'Arial', sans-serif;
         border-radius: 10px;
 
         &:hover {
-            background-color: #3367469b;
-            color: $black;
+            background-color: darken($green, 15%);
             transform: scale(1.05);
         }
     }
