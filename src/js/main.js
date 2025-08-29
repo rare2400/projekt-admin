@@ -86,6 +86,28 @@ async function displayMenu(data) {
             window.location.href = `edit-dish.html?id=${dish._id}`;
         });
 
+        //delete dish
+        deleteBtn.addEventListener("click", async () => {
+            console.log("rätt raderad i databasen");
+
+            const token = localStorage.getItem("admin-token");
+            try {
+                await fetch(`http://127.0.0.1:3000/api/menu/${dish._id}`, {
+                    method: "DELETE",
+                    headers: {
+                        "Authorization": "Bearer " + token
+                    }
+                });
+
+                //remove the dish from the DOM
+                dishBox.remove();
+
+            } catch (error) {
+                console.error("Kunde inte uppdatera status" + error);
+            }
+        });
+
+
         //put the elements together
         dishBox.appendChild(name);
         dishBox.appendChild(ingredients);
