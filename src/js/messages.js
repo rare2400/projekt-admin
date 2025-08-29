@@ -50,20 +50,32 @@ async function displayMessages(data) {
         const name = document.createElement("h2");
         const email = document.createElement("p");
         const customerMessage = document.createElement("p");
+        const createdAt = document.createElement("p");
 
-        //button and checkbox
+        //button
         const btnDiv = document.createElement("div");
         btnDiv.classList.add("btn-div");
+        const deleteBtn = document.createElement("button");
+        deleteBtn.classList.add("delete-btn");
+
+        //checkbox with label
+        const label = document.createElement("label");
+        label.textContent = "Kontaktad";
+        label.classList.add("checkbox-label");
+
         const checkbox = document.createElement("input");
         checkbox.type = "checkbox";
         checkbox.classList.add("checkbox");
-        const deleteBtn = document.createElement("button");
-        deleteBtn.classList.add("delete-btn");
+        checkbox.checked = message.contacted;
+
+        //put label and checkbox together
+        label.appendChild(checkbox);
 
         //set content for elements from data
         name.textContent = message.name;
         email.textContent = "E-post: " + message.email;
         customerMessage.textContent = message.message;
+        createdAt.textContent = new Date(message.createdAt).toLocaleString();
 
         //set text for button
         deleteBtn.textContent = "Ta bort";
@@ -78,16 +90,56 @@ async function displayMessages(data) {
             messageBox.appendChild(phoneNr);
         }
 
-        //put the elements together
+        //update contacted-status
+        checkbox.addEventListener("change", async () => {
+
+            //get token from localStorage
+            const token = localStorage.getItem("admin-token");
+
+            //update status in database
+            try {
+                await fetch(`http://127.0.0.1:3000/api/messages/${message._id}`, {
+                    method: "PUT",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "Authorization": "Bearer " + token
+                    },
+                    body: JSON.stringify({ contacted: checkbox.checked })
+                });
+            } catch (error) {
+                console.error("Kunde inte uppdatera status" + error);
+            }
+        });
+
+
+        //delete message
+        deleteBtn.addEventListener("click", async () => {
+            console.log("meddelande raderat i databasen");
+
+            const token = localStorage.getItem("admin-token");
+            try {
+                await fetch(`http://127.0.0.1:3000/api/messages/${message._id}`, {
+                    method: "DELETE",
+                    headers: {
+                        "Authorization": "Bearer " + token
+                    }
+                });
+
+                //remove message from DOM
+                messageBox.remove();
+
+            } catch (error) {
+                console.error("Kunde inte radera meddelandet" + error);
+            }
+        });
+
+        //put all the elements together
         messageBox.appendChild(email);
         messageBox.appendChild(customerMessage);
-
-
-        btnDiv.appendChild(checkbox);
+        messageBox.appendChild(createdAt);
+        btnDiv.appendChild(label);
         btnDiv.appendChild(deleteBtn);
         messageBox.appendChild(btnDiv);
-
-
         messages.appendChild(messageBox);
     });
 }
