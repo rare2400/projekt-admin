@@ -27,7 +27,8 @@
 }
 
 .link-btn {
-    @include abstracts.button(abstracts.$green, abstracts.$light-text, 70%, 2rem, 0 auto, 100%, center, 1rem, false);
+    display: block;
+    @include abstracts.button(abstracts.$green, abstracts.$light-text, 40%, 2rem, 0.8rem auto, 15rem, center, 1rem, false);
     align-content: center;
     text-decoration: none;
 }
@@ -37,6 +38,19 @@
     @include abstracts.button(abstracts.$green, abstracts.$light-text, 20%, 2rem, 0 2rem, 100%, center, 1rem, false);
     align-content: center;
     text-decoration: none;
+}
+
+#filter-btns {
+    @include abstracts.grid(100%, 3);
+    margin-bottom: 1em;
+
+    button {
+        @include abstracts.button(abstracts.$red, abstracts.$light-text, 90%, 2.2rem, 0.2rem auto, 13rem, center, 0.8rem, false);
+
+        &:hover {
+            background-color: darken(abstracts.$red, 15%);
+        }
+    }
 }
 
 
@@ -76,9 +90,14 @@
         }
     }
 
-    .link-btn {
-        width: 50%;
-        margin-right: 2rem;
+    #filter-btns {
+        @include abstracts.grid(100%, 5);
+        margin-bottom: 1em;
+
+        button {
+            font-size: 1rem;
+
+        }
     }
 
     .back-btn {
