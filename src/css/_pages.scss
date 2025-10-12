@@ -72,6 +72,19 @@
         margin: 0.3rem 0 0;
     }
 
+
+    .name-and-price {
+        @include abstracts.grid(100%, 2);
+    }
+
+    .price {
+        text-align: right;
+    }
+
+    .ingredients {
+        margin-bottom: 0.3em;
+    }
+
 }
 
 .msg-box {

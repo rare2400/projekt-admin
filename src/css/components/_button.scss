@@ -17,6 +17,7 @@
     background: transparent;
     color: abstracts.$light-text;
     font-size: 1.2rem;
+    z-index: 99999;
 
     cursor: pointer;
 
@@ -41,6 +42,7 @@
 
 .btn-div {
     @include abstracts.grid(100%, 2);
+    margin-bottom: 0.3em;
 
     .change-btn,
     .delete-btn {

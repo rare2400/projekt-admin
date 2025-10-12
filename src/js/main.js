@@ -62,9 +62,16 @@ async function displayMenu(data) {
         const dishBox = document.createElement("div");
         dishBox.classList.add("dish-box");
         const name = document.createElement("h2");
+
+        const nameAndPrice = document.createElement("div");
+        nameAndPrice.classList.add("name-and-price");
+
         const ingredients = document.createElement("p");
+        ingredients.classList.add("ingredients");
+
         const price = document.createElement("p");
         price.classList.add("price");
+
         const btnDiv = document.createElement("div");
         btnDiv.classList.add("btn-div");
         const changeBtn = document.createElement("button");
@@ -74,7 +81,13 @@ async function displayMenu(data) {
 
         //set content for elements from data
         name.textContent = dish.name;
-        ingredients.textContent = dish.ingredients;
+
+        if (dish.ingredients) {
+            ingredients.textContent = dish.ingredients;
+        } else {
+            ingredients.textContent = "";
+        }
+
         price.textContent = dish.price + " kr";
 
         //set text for buttons
@@ -109,9 +122,10 @@ async function displayMenu(data) {
 
 
         //put the elements together
-        dishBox.appendChild(name);
+        nameAndPrice.appendChild(name);
+        nameAndPrice.appendChild(price);
+        dishBox.appendChild(nameAndPrice);
         dishBox.appendChild(ingredients);
-        dishBox.appendChild(price);
         btnDiv.appendChild(changeBtn);
         btnDiv.appendChild(deleteBtn);
         dishBox.appendChild(btnDiv);
