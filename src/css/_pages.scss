@@ -25,17 +25,8 @@
     color: red;
 }
 
-//menu
-#filter {
-    padding: 0.3rem;
-    margin: 0.5rem auto 1rem;
-    border: 1px solid abstracts.$shadow;
-    width: 20%;
-    border-radius: 10px;
-
-    &:hover {
-        cursor: pointer;
-    }
+#filter-container {
+    margin: 1em;
 }
 
 #menu-container {
@@ -44,19 +35,6 @@
     border-radius: 10px;
 }
 
-#filter-container {
-    @include abstracts.grid(100%, 2);
-    margin-top: 1em;
-
-    label {
-        margin-left: 1em;
-    }
-
-    select {
-        width: 50%;
-        margin: 0 auto;
-    }
-}
 
 .dish-box {
     @include abstracts.textBox(100%, 0.8rem 2rem, 0 auto);
