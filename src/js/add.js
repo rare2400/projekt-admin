@@ -20,8 +20,18 @@ async function createDish(e) {
     let errorMsg = document.getElementById("error-msg");
 
     //validate required input
-    if (!nameInput || !catergoryInput || !ingredientsInput || !priceInput) {
-        errorMsg.textContent = "Fyll i alla fält!";
+    if (!nameInput) {
+        errorMsg.textContent = "Fyll i alla namnet på rätten!";
+        return;
+    }
+
+    if (!catergoryInput) {
+        errorMsg.textContent = "Välj kategori!";
+        return;
+    }
+
+    if (!priceInput) {
+        errorMsg.textContent = "Fyll i pris!";
         return;
     }
 
