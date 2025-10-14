@@ -23,6 +23,8 @@ function init() {
         filterBtns.forEach(btn => {
             btn.addEventListener("click", () => {
                 applyFilter(btn.dataset.category);
+
+                activateBtn(btn)
             });
         });
     }
@@ -45,6 +47,11 @@ closeBtn.addEventListener('click', toggleMenu);
 function toggleMenu() {
     header.classList.toggle("menu-open");
     navMenuEl.classList.toggle("active");
+}
+
+function activateBtn(activeBtn) {
+    filterBtns.forEach(btn => btn.classList.remove("active"));
+    activeBtn.classList.add("active")
 }
 
 //fetch menu from API

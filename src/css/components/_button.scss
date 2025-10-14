@@ -51,6 +51,11 @@
             background-color: darken(abstracts.$red, 15%);
         }
     }
+
+    button.active {
+        background-color: darken(abstracts.$red, 25%);
+        transform: scale(1.1)
+    }
 }
 
 
@@ -96,7 +101,6 @@
 
         button {
             font-size: 1rem;
-
         }
     }
 
