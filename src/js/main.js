@@ -3,6 +3,11 @@
 window.onload = init;
 
 const menu = document.getElementById("menu");
+const filterBtns = document.querySelectorAll("#filter-btns button");
+
+//array for the dishes in the API
+let dishes = [];
+
 //nav-menu elements
 let header = document.querySelector("header");
 let navMenuEl = document.getElementById("nav-menu");
@@ -12,6 +17,14 @@ let closeBtn = document.getElementById("close-menu");
 function init() {
     if (menu) {
         fetchMenu();
+    }
+
+    if (filterBtns.length > 0) {
+        filterBtns.forEach(btn => {
+            btn.addEventListener("click", () => {
+                applyFilter(btn.dataset.category);
+            });
+        });
     }
 
     //logout-function
@@ -41,21 +54,55 @@ async function fetchMenu() {
 
         if (response.ok) {
             const data = await response.json();
-            displayMenu(data);
+            dishes = data;
+            displayMenu(dishes);
         }
     } catch (error) {
         console.log("Error fetching data:", error);
     }
 }
 
+//apply filter to menu
+function applyFilter(category) {
+
+    if (category === "") {
+        displayMenu(dishes);
+    } else {
+        const filteredDishes = dishes.filter(dish => dish.category === category);
+        displayMenu(filteredDishes);
+    }
+}
+
 //display fetched menu from API
-async function displayMenu(data) {
+function displayMenu(data) {
     menu.innerHTML = "";
 
     if (data.length === 0) {
-        menu.textContent = "Det finns inga inlägg att visa";
+        menu.textContent = "Det finns inga rätter att visa";
         return;
     }
+
+
+    const menuOrder = [
+        "Pizza klass 1",
+        "Pizza klass 2",
+        "Pizza klass 3",
+        "Pizza klass 4",
+        "Italian Pizza",
+        "Sallad",
+        "Kebab",
+        "Hamburger",
+        "Sauce",
+        "Sides",
+        "Dryck"
+    ];
+
+    data.sort((a, b) => {
+        const indexA = menuOrder.indexOf(a.category);
+        const indexB = menuOrder.indexOf(b.category);
+
+        return (indexA === -1 ? 999 : indexA) - (indexB === -1 ? 999 : indexB);
+    })
 
     //loop data and create elements for menu-items
     data.forEach(dish => {
