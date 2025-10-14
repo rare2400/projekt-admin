@@ -46,7 +46,7 @@ async function createDish(e) {
 
     //POST new dish to API
     try {
-        const response = await fetch("http://127.0.0.1:3000/api/menu", {
+        const response = await fetch("https://projekt-api-73oa.onrender.com/api/menu", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

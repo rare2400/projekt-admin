@@ -3,7 +3,7 @@
 window.onload = init;
 
 function init() {
-    const url = "http://127.0.0.1:3000/api/menu";
+    const url = "https://projekt-api-73oa.onrender.com/api/menu";
 
     initForm(url);
 }

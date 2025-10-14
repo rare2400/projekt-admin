@@ -19,7 +19,7 @@ async function fetchMessages() {
         const token = localStorage.getItem("admin-token")
 
         //fetch data from API with token in header
-        const response = await fetch("http://127.0.0.1:3000/api/messages", {
+        const response = await fetch("https://projekt-api-73oa.onrender.com/api/messages", {
             headers: {
                 "Authorization": "Bearer " + token
             }
@@ -98,7 +98,7 @@ async function displayMessages(data) {
 
             //update status in database
             try {
-                await fetch(`http://127.0.0.1:3000/api/messages/${message._id}`, {
+                await fetch(`https://projekt-api-73oa.onrender.com/api/messages/${message._id}`, {
                     method: "PUT",
                     headers: {
                         "Content-Type": "application/json",
@@ -118,7 +118,7 @@ async function displayMessages(data) {
 
             const token = localStorage.getItem("admin-token");
             try {
-                await fetch(`http://127.0.0.1:3000/api/messages/${message._id}`, {
+                await fetch(`https://projekt-api-73oa.onrender.com/api/messages/${message._id}`, {
                     method: "DELETE",
                     headers: {
                         "Authorization": "Bearer " + token

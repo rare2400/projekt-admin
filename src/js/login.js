@@ -36,7 +36,7 @@ async function loginUser(e) {
 
     //send login request to the server
     try {
-        const response = await fetch("http://127.0.0.1:3000/api/login", {
+        const response = await fetch("https://projekt-api-73oa.onrender.com/api/login", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
