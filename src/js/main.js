@@ -24,6 +24,7 @@ function init() {
             btn.addEventListener("click", () => {
                 applyFilter(btn.dataset.category);
 
+                //activate clicked button
                 activateBtn(btn)
             });
         });
@@ -49,6 +50,7 @@ function toggleMenu() {
     navMenuEl.classList.toggle("active");
 }
 
+//add style on active button
 function activateBtn(activeBtn) {
     filterBtns.forEach(btn => btn.classList.remove("active"));
     activeBtn.classList.add("active")
