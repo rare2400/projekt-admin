@@ -6,8 +6,8 @@
   "author": "Ramona Reinholdz",
   "type": "commonjs",
   "scripts": {
-    "start": "parcel src/index.html",
-    "build": "parcel build src/index.html"
+    "start": "parcel src/index.html src/menu.html src/add-dish.html src/edit-dish.html",
+    "build": "parcel build src/index.html src/menu.html src/add-dish.html src/edit-dish.html"
   },
   "devDependencies": {
     "@parcel/transformer-sass": "^2.15.4",
