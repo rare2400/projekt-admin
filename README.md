@@ -1,7 +1,7 @@
 # Frontend-applikation för pizzeria
-En frontend-applikation skapad för att administrera en pizzerias webbplats med krav på att vara inloggad. Som inloggad användare kan man se menyn och
+En frontend-applikation skapad för att administrera en pizzerias webbplats med krav på att vara inloggad. Som autentiserad användare kan man se menyn och
 lägga till, ändra och ta bort rätter i den. Auktoriserade användare kan även se meddelanden eller frågor från kunder och se status om de fått återkoppling
-ännu eller inte. [Publicerad applikation kräver inloggningsuppgifter.](https://pizzeriavenedig-admin.netlify.app/) Applikationen använder HTML, JavaScript, Parcel 
+ännu eller inte. [Publicerad applikation](https://pizzeriavenedig-admin.netlify.app/)  kräver inloggningsuppgifter för att komma vidare från inloggningssidan. Applikationen använder HTML, JavaScript, Parcel 
 och SASS (SCSS), samt är kopplad till en RESTful webbtjänst. API:et erhåller data genom dokumentdatabasen MongoDB (se [API](https://projekt-api-73oa.onrender.com/api/menu) 
 och [API repo](https://github.com/rare2400/projekt-api) ). 
 
