@@ -10,6 +10,14 @@
     text-align: center;
     font-weight: 600;
     padding: 0 1rem;
+
+    a {
+        color: abstracts.$black;
+
+        &:hover {
+            @extend %hoverLink;
+        }
+    }
 }
 
 #msg {
