@@ -138,10 +138,12 @@ function displayMenu(data) {
         "Dryck"
     ];
 
+    //sort the data based on the menuOrder array index defined above
     data.sort((a, b) => {
         const indexA = menuOrder.indexOf(a.category);
         const indexB = menuOrder.indexOf(b.category);
 
+        //sort dishes outside of the menuOrder array to the end
         return (indexA === -1 ? 999 : indexA) - (indexB === -1 ? 999 : indexB);
     })
 
@@ -170,6 +172,7 @@ function displayMenu(data) {
         //set content for elements from data
         name.textContent = dish.name;
 
+        //if there are ingredients, set textcontent, else set it to empty string
         if (dish.ingredients) {
             ingredients.textContent = dish.ingredients;
         } else {
