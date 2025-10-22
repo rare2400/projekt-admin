@@ -3,7 +3,7 @@
 window.onload = init;
 
 const menu = document.getElementById("menu");
-const filterBtns = document.querySelectorAll("#filter-btns button");
+const btnConatiner = document.getElementById("filter-btns");
 
 //array for the dishes in the API
 let dishes = [];
@@ -17,17 +17,6 @@ let closeBtn = document.getElementById("close-menu");
 function init() {
     if (menu) {
         fetchMenu();
-    }
-
-    if (filterBtns.length > 0) {
-        filterBtns.forEach(btn => {
-            btn.addEventListener("click", () => {
-                applyFilter(btn.dataset.category);
-
-                //activate clicked button
-                activateBtn(btn)
-            });
-        });
     }
 
     //logout-function
@@ -50,26 +39,69 @@ function toggleMenu() {
     navMenuEl.classList.toggle("active");
 }
 
-//add style on active button
-function activateBtn(activeBtn) {
-    filterBtns.forEach(btn => btn.classList.remove("active"));
-    activeBtn.classList.add("active")
-}
 
 //fetch menu from API
 async function fetchMenu() {
     try {
-        const response = await fetch("https://projekt-api-73oa.onrender.com/api/menu")
+        const response = await fetch("https://projekt-api-73oa.onrender.com/api/menu");
 
         if (response.ok) {
             const data = await response.json();
             dishes = data;
+
+            //create filterbuttons from categories in the fetched data
+            createFilterBtns(dishes);
+
+            //display the menu
             displayMenu(dishes);
+        } else {
+            console.error("Fel vid hämtning:", response.status);
         }
     } catch (error) {
         console.log("Error fetching data:", error);
     }
 }
+
+//create filterbuttons
+function createFilterBtns(data) {
+    btnConatiner.innerHTML = "";
+
+    //get unique categories from data
+    const categories = [...new Set(data.map(dish => dish.category))];
+
+    //button showing all dishes
+    const allBtn = document.createElement("button");
+    allBtn.textContent = "Visa alla";
+    allBtn.dataset.category = "";
+    btnConatiner.appendChild(allBtn);
+
+    //create buttons för every unique category
+    categories.forEach(category => {
+        const btn = document.createElement("button");
+        btn.textContent = category;
+        btn.dataset.category = category;
+        btnConatiner.appendChild(btn);
+    });
+
+    //add eventlistener to buttons
+    const filterBtns = btnConatiner.querySelectorAll("button");
+    filterBtns.forEach(btn => {
+        btn.addEventListener("click", () => {
+            applyFilter(btn.dataset.category);
+
+            //activate style on clicked button
+            activateBtn(btn)
+        });
+    });
+}
+
+//add style on active button
+function activateBtn(activeBtn) {
+    const filterBtn = document.querySelectorAll("#filter-btns button");
+    filterBtn.forEach(btn => btn.classList.remove("active"));
+    activeBtn.classList.add("active");
+}
+
 
 //apply filter to menu
 function applyFilter(category) {
