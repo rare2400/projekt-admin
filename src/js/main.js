@@ -3,7 +3,7 @@
 window.onload = init;
 
 const menu = document.getElementById("menu");
-const btnConatiner = document.getElementById("filter-btns");
+const btnContainer = document.getElementById("filter-btns");
 
 //array for the dishes in the API
 let dishes = [];
@@ -30,9 +30,11 @@ function init() {
     }
 }
 
-//eventlisteners
-openBtn.addEventListener('click', toggleMenu);
-closeBtn.addEventListener('click', toggleMenu);
+if (openBtn && closeBtn) {
+    //eventlisteners
+    openBtn.addEventListener('click', toggleMenu);
+    closeBtn.addEventListener('click', toggleMenu);
+}
 
 function toggleMenu() {
     header.classList.toggle("menu-open");
@@ -64,7 +66,7 @@ async function fetchMenu() {
 
 //create filterbuttons
 function createFilterBtns(data) {
-    btnConatiner.innerHTML = "";
+    btnContainer.innerHTML = "";
 
     //get unique categories from data
     const categories = [...new Set(data.map(dish => dish.category))];
@@ -73,18 +75,18 @@ function createFilterBtns(data) {
     const allBtn = document.createElement("button");
     allBtn.textContent = "Visa alla";
     allBtn.dataset.category = "";
-    btnConatiner.appendChild(allBtn);
+    btnContainer.appendChild(allBtn);
 
     //create buttons för every unique category
     categories.forEach(category => {
         const btn = document.createElement("button");
         btn.textContent = category;
         btn.dataset.category = category;
-        btnConatiner.appendChild(btn);
+        btnContainer.appendChild(btn);
     });
 
     //add eventlistener to buttons
-    const filterBtns = btnConatiner.querySelectorAll("button");
+    const filterBtns = btnContainer.querySelectorAll("button");
     filterBtns.forEach(btn => {
         btn.addEventListener("click", () => {
             applyFilter(btn.dataset.category);
