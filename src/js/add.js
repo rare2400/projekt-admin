@@ -1,11 +1,20 @@
 "use strict";
 
+//import function to fetch categories and fill select element
+import { fetchCategories } from "./categories.js";
+
+window.onload = init;
+
 const addDish = document.getElementById("add-dish");
 
-if (addDish) {
-    addDish.addEventListener("submit", createDish);
-} else {
-    console.log("addDish form not found");
+function init() {
+    fetchCategories();
+
+    if (addDish) {
+        addDish.addEventListener("submit", createDish);
+    } else {
+        console.log("addDish form not found");
+    }
 }
 
 //create a new dish
