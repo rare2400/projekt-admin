@@ -1,6 +1,6 @@
 "use strict";
 
-window.onload = init;
+window.addEventListener("load", init);
 
 const messages = document.getElementById("messages");
 
