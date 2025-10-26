@@ -1,18 +1,19 @@
 "use strict"
 
+//import function to fetch categories and fill select element
+import { fetchCategories } from "./categories.js";
+
 window.onload = init;
 
-function init() {
-    const url = "https://projekt-api-73oa.onrender.com/api/menu";
-
-    initForm(url);
-}
 
 //function to get the (dish)id from the url and init fetch to get data
-async function initForm(url) {
+async function init() {
+    const url = "https://projekt-api-73oa.onrender.com/api/menu";
     const form = document.getElementById("edit-dish");
     const urlParams = new URLSearchParams(window.location.search);
     const dishId = urlParams.get("id");
+
+    await fetchCategories();
 
     //call fetchData if there is a dishId
     if (dishId) {
